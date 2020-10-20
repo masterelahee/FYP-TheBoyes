@@ -53,7 +53,7 @@ class wascan(object):
 			self.usage.basic(True)
 		try:
 			opts,args = getopt.getopt(ARGV[1:],CHAR,LIST_NAME)
-		except getopt.GetoptError,e:
+		except getopt.GetoptError as e:
 			# True == exit
 			self.usage.basic(True)
 		# wascan banner
@@ -110,11 +110,11 @@ class wascan(object):
 						FullScan(kwargs,u,kwargs['data'])
 				Audit(kwargs,parse.netloc,kwargs['data'])
 				Brute(kwargs,parse.netloc,kwargs['data'])
-		except WascanUnboundLocalError,e:
+		except WascanUnboundLocalError as e:
 			pass
 
 if __name__ == "__main__":
 	try:
 		wascan().main()
-	except KeyboardInterrupt,e: 
+	except KeyboardInterrupt as e: 
 		exit(warn('Exiting... :('))

