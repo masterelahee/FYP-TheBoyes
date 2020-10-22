@@ -4,20 +4,24 @@
 # https://github.com/Arachni/arachni/wiki/REST-API
 
 import json
-import urllib2
-import subprocess
+import urllib.request
+from urllib.error import HTTPError
 
-URL='http://testhtml5.vulnweb.com'
-AUDIT_OPTS=['link', 'form', 'cookie', 'headers']
-SCAN_OPTS=['xss*', 'sql_injection*', 'csrf']
+URL='http://unpatchedfyp.hopto.org'
+SCAN_OPTS=['xss*','sql_injection*','csrf']
 #SCAN_OPTS=['*'] # do every check
-IP=subprocess.check_output(["docker", "inspect", "-f", '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}', "webscanner"]).rstrip()
-SCANNERURL="http://" + str(IP) + ":7331/scans"
+
 data = {
-        'url': URL, 'audit': {'elements': AUDIT_OPTS}, 'checks': SCAN_OPTS
+        'url': URL, 'checks' : SCAN_OPTS
 }
 
-req = urllib2.Request(SCANNERURL)
+f = urllib.parse.urlencode(data)
+f = f.encode('utf-8')
+
+req = urllib.request.Request('http://127.0.0.1:7331/scans')
 req.add_header('Content-Type', 'application/json')
 
-response = urllib2.urlopen(req, json.dumps(data))
+try:
+    response = urllib.request.urlopen(req, f)
+except HTTPError as e:
+    content = e.read()
