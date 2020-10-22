@@ -16,12 +16,12 @@ data = {
 }
 
 f = urllib.parse.urlencode(data)
-f = f.encode('utf-8')
+f = f.encode('utf-8') #encode data dict before opening the url
 
-req = urllib.request.Request('http://127.0.0.1:7331/scans')
+req = urllib.request.Request('http://127.0.0.1:7331/scans') #contact arachni rest server on local machine
 req.add_header('Content-Type', 'application/json')
 
 try:
     response = urllib.request.urlopen(req, f)
 except HTTPError as e:
-    content = e.read()
+    content = e.read() #read error response
