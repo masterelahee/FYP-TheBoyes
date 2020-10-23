@@ -31,6 +31,7 @@
 import urllib.request as urllib2
 import urllib
 import json
+import logging
 
 class ArachniClient(object):
 
@@ -110,8 +111,7 @@ class ArachniClient(object):
 
 if __name__ == '__main__':
    a = ArachniClient()
-   f = "http://f27ad1ed2e47.ngrok.io/login"
-   a.target(f)
+   a.target('http://f27ad1ed2e47.ngrok.io/')
    print(a.start_scan())
 
 # import urllib2
