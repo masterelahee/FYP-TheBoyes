@@ -55,9 +55,9 @@
    },
    "plugins" : {
     "autologin" : {
-      "url" : "http://f27ad1ed2e47.ngrok.io/login",
+      "url" : "http://f27ad1ed2e47.ngrok.io",
       "parameters" : "email=admin@admin.com&password=password",
-      "check" : "admin"
+      "check" : "logout"
     }
   },
    "session" : {},
