@@ -101,7 +101,7 @@
         "uniformity": {}, 
         "autothrottle": {}, 
         "autologin": {
-            "url": "http://f27ad1ed2e47.ngrok.io/", 
+            "url": "http://b3789e93786d.ngrok.io/", 
             "check": "logout", 
             "parameters": "email=admin@admin.com&password=password"
         }, 

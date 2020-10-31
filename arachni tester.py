@@ -34,7 +34,7 @@ import json
 
 class ArachniClient(object):
 
-   with open('./profiles/default2.json') as f:
+   with open('./profiles/full_audit.json') as f:
       default_profile = json.load(f)
 
    def __init__(self, arachni_url = 'http://127.0.0.1:7331'):
@@ -110,7 +110,7 @@ class ArachniClient(object):
 
 if __name__ == '__main__':
    a = ArachniClient()
-   a.target('http://f27ad1ed2e47.ngrok.io/')
+   a.target('http://b3789e93786d.ngrok.io/')
    print(a.start_scan()) #outputs scan id
    while True:
       print("scan is ongoing")

@@ -129,13 +129,18 @@
     "xxe"
   ],
   "platforms" : [],
-  "plugins" : {
-    "autothrottle" : {},
-    "discovery" : {},
-    "healthmap" : {},
-    "timing_attacks" : {},
-    "uniformity" : {}
-  },
+  "plugins": {
+        "uniformity": {}, 
+        "autothrottle": {}, 
+        "autologin": {
+            "url": "http://b3789e93786d.ngrok.io/", 
+            "check": "logout", 
+            "parameters": "email=admin@admin.com&password=password"
+        }, 
+        "healthmap": {}, 
+        "timing_attacks": {}, 
+        "discovery": {}
+    }, 
   "no_fingerprinting" : false,
   "authorized_by" : null
 }
