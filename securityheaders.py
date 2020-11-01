@@ -199,7 +199,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     url = args.url"""
 
-    url = 'unpatchedfyp.hopto.org'
+    url = 'https://juice-shop.herokuapp.com/#/search'
 
     """redirects = args.max_redirects"""
 

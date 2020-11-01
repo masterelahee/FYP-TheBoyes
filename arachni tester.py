@@ -31,10 +31,12 @@
 import urllib.request as urllib2
 import urllib
 import json
+import os
+import time
 
 class ArachniClient(object):
 
-   with open('./profiles/full_audit.json') as f:
+   with open('./profiles/speedscan.json') as f:
       default_profile = json.load(f)
 
    def __init__(self, arachni_url = 'http://127.0.0.1:7331'):
@@ -108,15 +110,36 @@ class ArachniClient(object):
       with open(profile_path) as f:
          self.options = json.load(f)
 
+   
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+
 if __name__ == '__main__':
    a = ArachniClient()
-   a.target('http://b3789e93786d.ngrok.io/')
-   print(a.start_scan()) #outputs scan id
-   while True:
-      print("scan is ongoing")
-      if(input("type 0 to terminate") == '0'):
-         print("scan terminated")
-         break
-   scan_ID = input("enter the scan id: ")
-   a.get_report(scan_ID, 'html') #scan needs to be paused or complete to get scan
-   a.delete_scan(scan_ID)
+   print(a.get_scans())
+   print(a.get_status("1b6c8ce956c2ae920837075c40a5ac48"))
+   #print(a.get_report("1b6c8ce956c2ae920837075c40a5ac48", 'xml'))
+   
+   urllib.request.urlretrieve("http://127.0.0.1:7331/scans/1b6c8ce956c2ae920837075c40a5ac48/report.xml","api_scan_report.xml")
+   # url = input("Enter url: ")
+   # a = ArachniClient()
+   # #a.resume_scan('a3b19dd445b1dac03773fedc68409583')  
+   # a.target(url)
+   # scan_json_object = a.start_scan() #outputs json dictionary
+   # scan_ID = scan_json_object["id"]
+   # #print(scan_ID) #in case program fails and scans need to be terminated again
+   # while True:
+   #    cls()
+   #    print("scan is ongoing")
+   #    status_object = a.get_status(scan_ID)
+   #    print(status_object["status"])
+   #    print(status_object["issues"])
+   #    print(status_object["busy"])
+   #    if(status_object["busy"] == False):
+   #       print("Scan has been completed, you can now retrieve the report")
+   #       a.get_report(scan_ID, 'html')
+   #       break
+   #    time.sleep(60)
+      
+   #a.get_report(scan_ID, 'html') #scan needs to be paused or complete to get scan
+   #a.delete_scan(scan_ID)
