@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Arachni/arachni/v1.5.1/components/reporters/xml/schema.xsd">
+ <version>
+  1.5.1
+ </version>
+ <seed>
+  6914ed4499dde338304ffd2127c670a4
+ </seed>
+ <options>
+  ---
+audit:
+  parameter_values: true
+  exclude_vector_patterns: []
+  include_vector_patterns: []
+  link_templates: []
+browser_cluster:
+  local_storage: {}
+  wait_for_elements: {}
+  pool_size: 6
+  job_timeout: 25
+  worker_time_to_live: 100
+  ignore_images: false
+  screen_width: 1600
+  screen_height: 1200
+datastore:
+  report_path: 
+  token: 5d059285b09c565cb5c8e5a5af25b2d0
+http:
+  user_agent: Arachni/v2.0dev
+  request_timeout: 10000
+  request_redirect_limit: 5
+  request_concurrency: 20
+  request_queue_size: 100
+  request_headers: {}
+  response_max_size: 500000
+  cookies: {}
+  authentication_type: auto
+input:
+  values: {}
+  default_values:
+    "(?i-mx:pass)": 5543!%arachni_secret
+    "(?i-mx:name)": arachni_name
+    "(?i-mx:mail)": arachni@email.gr
+    "(?i-mx:amount)": '100'
+    "(?i-mx:usr)": arachni_user
+    "(?i-mx:id)": '1'
+    "(?i-mx:txt)": arachni_text
+    "(?i-mx:account)": '12'
+    "(?i-mx:user)": arachni_user
+    "(?i-mx:num)": '132'
+  without_defaults: false
+  force: false
+scope:
+  redundant_path_patterns: {}
+  dom_depth_limit: 5
+  exclude_file_extensions: []
+  exclude_path_patterns: []
+  exclude_content_patterns: []
+  include_path_patterns: []
+  restrict_paths: []
+  extend_paths: []
+  url_rewrites: {}
+session:
+  check_url: http://b3789e93786d.ngrok.io/admin
+  check_pattern: "(?-mix:logout)"
+checks:
+- allowed_methods
+- backdoors
+- backup_directories
+- code_injection
+- csrf
+- ldap_injection
+- xxe
+- xss
+- no_sql_injection
+- path_traversal
+- backup_files
+platforms: []
+plugins:
+  uniformity: {}
+  autothrottle: {}
+  autologin:
+    url: http://b3789e93786d.ngrok.io/
+    check: logout
+    parameters: email=admin@admin.com&amp;password=password
+  healthmap: {}
+  timing_attacks: {}
+  discovery: {}
+no_fingerprinting: false
+authorized_by: 
+url: http://b3789e93786d.ngrok.io/
+ </options>
+ <start_datetime>
+  2020-11-02T10:56:00+08:00
+ </start_datetime>
+ <finish_datetime>
+  2020-11-02T10:58:31+08:00
+ </finish_datetime>
+ <sitemap>
+  <entry code="302" url="http://b3789e93786d.ngrok.io/"/>
+  <entry code="200" url="http://b3789e93786d.ngrok.io/login"/>
+  <entry code="302" url="http://b3789e93786d.ngrok.io/home"/>
+  <entry code="200" url="http://b3789e93786d.ngrok.io/admin"/>
+  <entry code="200" url="http://b3789e93786d.ngrok.io/js/main.js"/>
+  <entry code="200" url="http://b3789e93786d.ngrok.io/css/custom.css"/>
+  <entry code="405" url="http://b3789e93786d.ngrok.io/logout"/>
+  <entry code="500" url="http://b3789e93786d.ngrok.io/admin/system-calendar"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/RouteCollection.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/Router.php"/>
+  <entry code="302" url="http://b3789e93786d.ngrok.io/password/reset"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/Kernel.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/Pipeline.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/TransformsRequest.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/CheckForMaintenanceMode.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/ValidatePostSize.php"/>
+  <entry code="200" url="http://b3789e93786d.ngrok.io/_ignition/assets"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/app.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/TrustProxies.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/b3789e93786d.ngrok.io"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/v2.0dev"/>
+  <entry code="302" url="http://b3789e93786d.ngrok.io/index.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/ControllerDispatcher.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/Route.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/SetLocale.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/SystemCalendarController.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/Controller.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/SubstituteBindings.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/Authenticate.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/VerifyCsrfToken.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/ShareErrorsFromSession.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/StartSession.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/AuthGates.php"/>
+  <entry code="404" url="http://b3789e93786d.ngrok.io/AddQueuedCookiesToResponse.php"/>
+ </sitemap>
+ <issues/>
+ <plugins>
+  <autologin>
+   <name>
+    AutoLogin
+   </name>
+   <description>
+    It looks for the login form in the user provided URL, merges its input fields
+with the user supplied parameters and sets the cookies of the response and
+request as framework-wide cookies.
+
+**NOTICE**: If the login form is by default hidden and requires a sequence of DOM
+interactions in order to become visible, this plugin will not be able to submit it.
+   </description>
+   <results>
+    <message>
+     Logged in successfully.
+    </message>
+    <status>
+     ok
+    </status>
+    <cookies>
+     <cookie name="XSRF-TOKEN" value="BT3fyNrOTma7xnhHiV3PfMYTne6WxqX9IcTsII0Z"/>
+     <cookie name="laravel_session" value="YrCBr9cX5NpehVJNrT8M3FqIBmflscrpqbQfhFWt"/>
+    </cookies>
+   </results>
+  </autologin>
+  <healthmap>
+   <name>
+    Health map
+   </name>
+   <description>
+    Generates a simple list of safe/unsafe URLs.
+   </description>
+   <results>
+    <map>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/AddQueuedCookiesToResponse.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/AuthGates.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/Authenticate.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/CheckForMaintenanceMode.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/Controller.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/ControllerDispatcher.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/Kernel.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/Pipeline.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/Route.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/RouteCollection.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/Router.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/SetLocale.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/ShareErrorsFromSession.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/StartSession.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/SubstituteBindings.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/SystemCalendarController.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/TransformsRequest.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/TrustProxies.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/ValidatePostSize.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/VerifyCsrfToken.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/_ignition/assets
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/admin
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/admin/system-calendar
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/app.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/b3789e93786d.ngrok.io
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/css/custom.css
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/home
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/index.php
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/js/main.js
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/login
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/logout
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/password/reset
+     </without_issues>
+     <without_issues>
+      http://b3789e93786d.ngrok.io/v2.0dev
+     </without_issues>
+    </map>
+    <total>
+     34
+    </total>
+    <with_issues>
+     0
+    </with_issues>
+    <without_issues>
+     34
+    </without_issues>
+    <issue_percentage>
+     0
+    </issue_percentage>
+   </results>
+  </healthmap>
+ </plugins>
+</report>

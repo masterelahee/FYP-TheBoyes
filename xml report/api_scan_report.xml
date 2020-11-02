@@ -1,85 +1,92 @@
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="report.css"?>
 <report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Arachni/arachni/v1.5.1/components/reporters/xml/schema.xsd">
-  <version>1.5.1</version>
-  <seed>ba3d303e6d74b28acba38157a72e6883</seed>
+<version>1.5.1</version>
+<seed>ba3d303e6d74b28acba38157a72e6883</seed>
+<name>
+  <heading>Scan options<heading>
   <options>---
-audit:
-  parameter_values: true
-  exclude_vector_patterns: []
-  include_vector_patterns: []
-  link_templates: []
-browser_cluster:
-  local_storage: {}
-  wait_for_elements: {}
-  pool_size: 6
-  job_timeout: 25
-  worker_time_to_live: 100
-  ignore_images: false
-  screen_width: 1600
-  screen_height: 1200
-datastore:
-  report_path: 
-  token: 1b6c8ce956c2ae920837075c40a5ac48
-http:
-  user_agent: Arachni/v2.0dev
-  request_timeout: 10000
-  request_redirect_limit: 5
-  request_concurrency: 20
-  request_queue_size: 100
-  request_headers: {}
-  response_max_size: 500000
-  cookies: {}
-  authentication_type: auto
-input:
-  values: {}
-  default_values:
-    "(?i-mx:pass)": 5543!%arachni_secret
-    "(?i-mx:name)": arachni_name
-    "(?i-mx:mail)": arachni@email.gr
-    "(?i-mx:amount)": '100'
-    "(?i-mx:usr)": arachni_user
-    "(?i-mx:id)": '1'
-    "(?i-mx:txt)": arachni_text
-    "(?i-mx:account)": '12'
-    "(?i-mx:user)": arachni_user
-    "(?i-mx:num)": '132'
-  without_defaults: false
-  force: false
-scope:
-  redundant_path_patterns: {}
-  dom_depth_limit: 5
-  exclude_file_extensions: []
-  exclude_path_patterns: []
-  exclude_content_patterns: []
-  include_path_patterns: []
-  restrict_paths: []
-  extend_paths: []
-  url_rewrites: {}
-session:
-  check_url: http://b3789e93786d.ngrok.io/admin
-  check_pattern: "(?-mix:logout)"
-checks:
-- allowed_methods
-- backdoors
-- backup_directories
-- backup_files
-platforms: []
-plugins:
-  uniformity: {}
-  autothrottle: {}
-  autologin:
+    audit:
+      parameter_values: true
+      exclude_vector_patterns: []
+      include_vector_patterns: []
+      link_templates: []
+    browser_cluster:
+      local_storage: {}
+      wait_for_elements: {}
+      pool_size: 6
+      job_timeout: 25
+      worker_time_to_live: 100
+      ignore_images: false
+      screen_width: 1600
+      screen_height: 1200
+    datastore:
+      report_path: 
+      token: 1b6c8ce956c2ae920837075c40a5ac48
+    http:
+      user_agent: Arachni/v2.0dev
+      request_timeout: 10000
+      request_redirect_limit: 5
+      request_concurrency: 20
+      request_queue_size: 100
+      request_headers: {}
+      response_max_size: 500000
+      cookies: {}
+      authentication_type: auto
+    input:
+      values: {}
+      default_values:
+        "(?i-mx:pass)": 5543!%arachni_secret
+        "(?i-mx:name)": arachni_name
+        "(?i-mx:mail)": arachni@email.gr
+        "(?i-mx:amount)": '100'
+        "(?i-mx:usr)": arachni_user
+        "(?i-mx:id)": '1'
+        "(?i-mx:txt)": arachni_text
+        "(?i-mx:account)": '12'
+        "(?i-mx:user)": arachni_user
+        "(?i-mx:num)": '132'
+      without_defaults: false
+      force: false
+    scope:
+      redundant_path_patterns: {}
+      dom_depth_limit: 5
+      exclude_file_extensions: []
+      exclude_path_patterns: []
+      exclude_content_patterns: []
+      include_path_patterns: []
+      restrict_paths: []
+      extend_paths: []
+      url_rewrites: {}
+    session:
+      check_url: http://b3789e93786d.ngrok.io/admin
+      check_pattern: "(?-mix:logout)"
+    checks:
+    - allowed_methods
+    - backdoors
+    - backup_directories
+    - backup_files
+    platforms: []
+    plugins:
+      uniformity: {}
+      autothrottle: {}
+      autologin:
+        url: http://b3789e93786d.ngrok.io/
+        check: logout
+        parameters: email=admin@admin.com&amp;password=password
+      healthmap: {}
+      timing_attacks: {}
+      discovery: {}
+    no_fingerprinting: false
+    authorized_by: 
     url: http://b3789e93786d.ngrok.io/
-    check: logout
-    parameters: email=admin@admin.com&amp;password=password
-  healthmap: {}
-  timing_attacks: {}
-  discovery: {}
-no_fingerprinting: false
-authorized_by: 
-url: http://b3789e93786d.ngrok.io/
-</options>
+  </options>
+</name>
+<name>
   <start_datetime>2020-11-01T19:00:12+08:00</start_datetime>
   <finish_datetime>2020-11-01T19:04:11+08:00</finish_datetime>
+</name>
+<name>
   <sitemap>
     <entry url="http://b3789e93786d.ngrok.io/" code="302"/>
     <entry url="http://b3789e93786d.ngrok.io/login" code="200"/>
@@ -116,6 +123,7 @@ url: http://b3789e93786d.ngrok.io/
     <entry url="http://b3789e93786d.ngrok.io/password/reset" code="302"/>
     <entry url="http://b3789e93786d.ngrok.io/RouteCollection.php" code="404"/>
   </sitemap>
+</name>
   <issues/>
   <plugins>
     <autologin>

@@ -33,6 +33,7 @@ import urllib
 import json
 import os
 import time
+from bs4 import BeautifulSoup
 
 class ArachniClient(object):
 
@@ -116,30 +117,32 @@ def cls():
 
 if __name__ == '__main__':
    a = ArachniClient()
-   print(a.get_scans())
-   print(a.get_status("1b6c8ce956c2ae920837075c40a5ac48"))
-   #print(a.get_report("1b6c8ce956c2ae920837075c40a5ac48", 'xml'))
-   
-   urllib.request.urlretrieve("http://127.0.0.1:7331/scans/1b6c8ce956c2ae920837075c40a5ac48/report.xml","api_scan_report.xml")
-   # url = input("Enter url: ")
-   # a = ArachniClient()
-   # #a.resume_scan('a3b19dd445b1dac03773fedc68409583')  
-   # a.target(url)
-   # scan_json_object = a.start_scan() #outputs json dictionary
-   # scan_ID = scan_json_object["id"]
-   # #print(scan_ID) #in case program fails and scans need to be terminated again
-   # while True:
-   #    cls()
-   #    print("scan is ongoing")
-   #    status_object = a.get_status(scan_ID)
-   #    print(status_object["status"])
-   #    print(status_object["issues"])
-   #    print(status_object["busy"])
-   #    if(status_object["busy"] == False):
-   #       print("Scan has been completed, you can now retrieve the report")
-   #       a.get_report(scan_ID, 'html')
-   #       break
-   #    time.sleep(60)
+
+   url = input("Enter url: ")
+   a = ArachniClient()
+   a.target(url)
+   scan_json_object = a.start_scan() #outputs json dictionary
+   scan_ID = scan_json_object["id"]
+   start_time = time.time()
+   #print(scan_ID) #in case program fails and scans need to be terminated again
+   while True:
+      cls()
+      print("scan is ongoing")
+      status_object = a.get_status(scan_ID)
+      print(status_object["status"])
+      print(status_object["issues"])
+      print(status_object["busy"])
+      if(status_object["busy"] == False):
+         print("Scan has been completed, retrieving report...")
+         urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.xml","arachni_" + scan_ID + "_scan_report.xml") #sends a call for report after scan is complete
+         #beautify xml output
+         bs = BeautifulSoup(open("arachni_" + scan_ID + "_scan_report.xml"),"xml")
+         xml_output = bs.prettify()
+         with open("pretty_xml_report_" + scan_ID + ".xml", "w") as f:
+            f.write(xml_output)
+         print("Elapsed time is: ", time.time() - start_time)
+         break
+      time.sleep(60)
       
-   #a.get_report(scan_ID, 'html') #scan needs to be paused or complete to get scan
-   #a.delete_scan(scan_ID)
+   a.delete_scan(scan_ID)
+   a.delete_scan("5d059285b09c565cb5c8e5a5af25b2d0")

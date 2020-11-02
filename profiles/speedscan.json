@@ -23,6 +23,13 @@
         "allowed_methods", 
         "backdoors", 
         "backup_directories", 
+		"code_injection", 
+		"csrf", 
+		"ldap_injection", 
+		"xxe",
+		"xss",
+		"no_sql_injection",
+		"path_traversal", 
         "backup_files"
     ], 
     "browser_cluster": {

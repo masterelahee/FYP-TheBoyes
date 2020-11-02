@@ -1,0 +1,17 @@
+report
+{
+    background-color: black;
+    color: white;
+    width: 100%; 
+    display: block;
+}
+
+options
+{
+    display: block;
+}
+
+name
+{
+    display: block;
+}
