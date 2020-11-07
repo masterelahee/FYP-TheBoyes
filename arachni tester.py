@@ -75,21 +75,21 @@ class ArachniClient(object):
    def resume_scan(self, scan_id):
       return self.put_request('/scans/' + scan_id + '/resume')
 
-   def get_report(self, scan_id, report_format = None):
-      if self.get_status(scan_id)['status'] == 'done':
+   # def get_report(self, scan_id, report_format = None):
+   #    if self.get_status(scan_id)['status'] == 'done':
 
-         if report_format == 'html':
-            report_format = 'html.zip'
+   #       if report_format == 'html':
+   #          report_format = 'html.zip'
 
-         if report_format in ['json', 'xml', 'yaml', 'html.zip']:
-            return self.get_http_request('/scans/' + scan_id + '/report.' + report_format)
-         elif report_format == None:
-            return self.get_http_request('/scans/' + scan_id + '/report')
-         else:
-            print ('your requested format is not available.')
+   #       if report_format in ['json', 'xml', 'yaml', 'html.zip']:
+   #          return self.get_http_request('/scans/' + scan_id + '/report.' + report_format)
+   #       elif report_format == None:
+   #          return self.get_http_request('/scans/' + scan_id + '/report')
+   #       else:
+   #          print ('your requested format is not available.')
 
-      else:
-         print('your requested scan is in progress.')
+   #    else:
+   #       print('your requested scan is in progress.')
 
    def delete_scan(self, scan_id):
       return self.delete_request('/scans/' + scan_id)
@@ -110,39 +110,54 @@ class ArachniClient(object):
    def profile(self, profile_path):
       with open(profile_path) as f:
          self.options = json.load(f)
-
    
+   def getScanReport(self, scanID, format):
+      if report_format == 'html':
+         report_format = 'html.zip'
+
+      if report_format in ['json', 'xml', 'yaml', 'html.zip']:
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"arachni_" + scan_ID + "_scan_report." + report_format)
+      elif report_format == None: #outputs to json by default
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","arachni_" + scan_ID + "_scan_report.json")
+      else:
+         print ("Your requested format is not available.")
+
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
+#main
 if __name__ == '__main__':
    a = ArachniClient()
-
+   #test website: http://testhtml5.vulnweb.com
    url = input("Enter url: ")
    a = ArachniClient()
    a.target(url)
    scan_json_object = a.start_scan() #outputs json dictionary
    scan_ID = scan_json_object["id"]
    start_time = time.time()
+   print(a.get_scans())
    #print(scan_ID) #in case program fails and scans need to be terminated again
    while True:
       cls()
       print("scan is ongoing")
+      print("Elapsed time is: ", time.time() - start_time)
       status_object = a.get_status(scan_ID)
-      print(status_object["status"])
-      print(status_object["issues"])
-      print(status_object["busy"])
+      print("Current status is: ", status_object["status"])
+      print("Current busy flag is: ", status_object["busy"])
       if(status_object["busy"] == False):
-         print("Scan has been completed, retrieving report...")
-         urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.xml","arachni_" + scan_ID + "_scan_report.xml") #sends a call for report after scan is complete
-         #beautify xml output
-         bs = BeautifulSoup(open("arachni_" + scan_ID + "_scan_report.xml"),"xml")
-         xml_output = bs.prettify()
-         with open("pretty_xml_report_" + scan_ID + ".xml", "w") as f:
-            f.write(xml_output)
          print("Elapsed time is: ", time.time() - start_time)
+         print("Scan has been completed, retrieving report...")
+         a.getScanReport(scan_ID,"json")
+         # urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.xml","arachni_" + scan_ID + "_scan_report.xml") #sends a call for report after scan is complete
+         # #output html instead?
+         # urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.html.zip","arachni_" + scan_ID + "_scan_report.html.zip")
+         # urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.json","arachni_" + scan_ID + "_scan_report.json")
+         # #beautify xml output
+         # bs = BeautifulSoup(open("arachni_" + scan_ID + "_scan_report.xml"),"xml")
+         # xml_output = bs.prettify()
+         # with open("pretty_xml_report_" + scan_ID + ".xml", "wb") as f:
+         #    f.write(xml_output.encode('utf-8'))
          break
       time.sleep(60)
       
-   a.delete_scan(scan_ID)
-   a.delete_scan("5d059285b09c565cb5c8e5a5af25b2d0")
+   #a.delete_scan(scan_ID) #disabled for testing
