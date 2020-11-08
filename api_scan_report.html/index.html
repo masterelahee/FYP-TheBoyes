@@ -1,0 +1,1668 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        http://b3789e93786d.ngrok.io/ ::
+        Arachni Web Application Security Report
+    </title>
+
+    <!--
+        Copyright 2010-2017 Sarosys LLC <http://www.sarosys.com>
+     -->
+
+    
+        <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+    
+        <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+    
+        <script type="text/javascript" src="js/lib/d3.min.js"></script>
+    
+        <script type="text/javascript" src="js/lib/c3.min.js"></script>
+    
+        <script type="text/javascript" src="js/helpers.js"></script>
+    
+        <script type="text/javascript" src="js/init.js"></script>
+    
+        <script type="text/javascript" src="js/charts.js"></script>
+    
+        <script type="text/javascript" src="js/configuration.js"></script>
+    
+
+    
+        <link href="css/lib/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    
+        <link href="css/lib/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    
+        <link href="css/lib/c3.css" type="text/css" rel="stylesheet" />
+    
+        <link href="css/main.css" type="text/css" rel="stylesheet" />
+    
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-default" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="http://www.arachni-scanner.com">
+            Arachni v1.5.1
+        </a>
+
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#!/summary">
+                        Summary
+
+                        
+                    </a>
+
+                    
+                </li>
+
+                
+
+                
+                <li class="dropdown">
+                    <a href="#!/plugins">
+                        Plugin results
+
+                        <span class="badge">2</span>
+                        <b class="fa fa-caret-down"></b>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        
+                            <li>
+                                <a href="#!/plugins/autologin">
+                                    AutoLogin
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="#!/plugins/healthmap">
+                                    Health map
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </li>
+                
+
+                <li>
+                    <a href="#!/sitemap">
+                        Sitemap
+
+                        <span class="badge">34</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#!/configuration">Configuration</a>
+                </li>
+            </ul>
+        </div>
+
+        <p class="navbar-text navbar-right">
+            (Found a false positive?
+
+            <a class="navbar-link" href="https://github.com/Arachni/arachni/issues">
+                Please let us know.</a>)
+        </p>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>
+            http://b3789e93786d.ngrok.io/
+            <small>Generated on 2020-11-01 19:57:39 +0800</small>
+        </h1>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="summary">
+            <h2>Summary</h2>
+
+<div id="summary-tabs">
+    
+        <p class="alert alert-info">
+            No issues have been identified.
+        </p>
+    
+</div>
+
+        </div>
+
+        <div class="tab-pane" id="configuration">
+            <h2>
+    Configuration
+
+    <a id="configuration-download" class="btn btn-sm btn-primary">
+        Download
+    </a>
+</h2>
+
+<dl class="dl-horizontal">
+    <dt>Version</dt>
+    <dd>1.5.1</dd>
+    <dt>Seed</dt>
+    <dd>ba3d303e6d74b28acba38157a72e6883</dd>
+    <dt>Audit started on</dt>
+    <dd>2020-11-01 19:00:12 +0800</dd>
+    <dt>Audit finished on</dt>
+    <dd>2020-11-01 19:04:11 +0800</dd>
+    <dt>Runtime</dt>
+    <dd>00:03:59</dd>
+</dl>
+
+<h3>
+    <a
+    id="configuration-general"
+    href="#!/configuration/general"
+    >
+        General
+    </a>
+</h3>
+
+<dl class="dl-horizontal">
+    <dt>URL</dt>
+    <dd>
+        <a href="http://b3789e93786d.ngrok.io/">
+            http://b3789e93786d.ngrok.io/
+        </a>
+    </dd>
+
+    
+        <dt>Checks</dt>
+        <dd>
+            <code>allowed_methods</code>, <code>backdoors</code>, <code>backup_directories</code>, <code>backup_files</code>
+        </dd>
+    
+
+    
+        <dt>Plugins</dt>
+        <dd>
+            <dl class="dl-horizontal">
+    
+        <dt>
+            <code>uniformity</code>
+        </dt>
+        <dd>
+            <code>{}</code>
+        </dd>
+    
+        <dt>
+            <code>autothrottle</code>
+        </dt>
+        <dd>
+            <code>{}</code>
+        </dd>
+    
+        <dt>
+            <code>autologin</code>
+        </dt>
+        <dd>
+            <code>{&quot;url&quot;=&gt;&quot;http://b3789e93786d.ngrok.io/&quot;, &quot;check&quot;=&gt;&quot;logout&quot;, &quot;parameters&quot;=&gt;&quot;email=admin@admin.com&amp;password=password&quot;}</code>
+        </dd>
+    
+        <dt>
+            <code>healthmap</code>
+        </dt>
+        <dd>
+            <code>{}</code>
+        </dd>
+    
+        <dt>
+            <code>timing_attacks</code>
+        </dt>
+        <dd>
+            <code>{}</code>
+        </dd>
+    
+        <dt>
+            <code>discovery</code>
+        </dt>
+        <dd>
+            <code>{}</code>
+        </dd>
+    
+</dl>
+
+        </dd>
+    
+
+    
+</dl>
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-audit"
+            href="#!/configuration/audit"
+        >
+            Audit
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;parameter_values&quot;</code>
+            </th>
+            <td>
+                
+                    <code>true</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_vector_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;include_vector_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;link_templates&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-browser_cluster"
+            href="#!/configuration/browser_cluster"
+        >
+            Browser cluster
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;local_storage&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;wait_for_elements&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;pool_size&quot;</code>
+            </th>
+            <td>
+                
+                    <code>6</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;job_timeout&quot;</code>
+            </th>
+            <td>
+                
+                    <code>25</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;worker_time_to_live&quot;</code>
+            </th>
+            <td>
+                
+                    <code>100</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;ignore_images&quot;</code>
+            </th>
+            <td>
+                
+                    <code>false</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;screen_width&quot;</code>
+            </th>
+            <td>
+                
+                    <code>1600</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;screen_height&quot;</code>
+            </th>
+            <td>
+                
+                    <code>1200</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-datastore"
+            href="#!/configuration/datastore"
+        >
+            Datastore
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;report_path&quot;</code>
+            </th>
+            <td>
+                
+                    <code>nil</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;token&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;1b6c8ce956c2ae920837075c40a5ac48&quot;</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-http"
+            href="#!/configuration/http"
+        >
+            Http
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;user_agent&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;Arachni/v2.0dev&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_timeout&quot;</code>
+            </th>
+            <td>
+                
+                    <code>10000</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_redirect_limit&quot;</code>
+            </th>
+            <td>
+                
+                    <code>5</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_concurrency&quot;</code>
+            </th>
+            <td>
+                
+                    <code>20</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_queue_size&quot;</code>
+            </th>
+            <td>
+                
+                    <code>100</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;request_headers&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;response_max_size&quot;</code>
+            </th>
+            <td>
+                
+                    <code>500000</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;cookies&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;authentication_type&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;auto&quot;</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-input"
+            href="#!/configuration/input"
+        >
+            Input
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;values&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;default_values&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:pass)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;5543!%arachni_secret&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:name)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_name&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:mail)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni@email.gr&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:amount)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;100&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:usr)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_user&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:id)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;1&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:txt)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_text&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:account)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;12&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:user)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;arachni_user&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;(?i-mx:num)&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;132&quot;</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;without_defaults&quot;</code>
+            </th>
+            <td>
+                
+                    <code>false</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;force&quot;</code>
+            </th>
+            <td>
+                
+                    <code>false</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-scope"
+            href="#!/configuration/scope"
+        >
+            Scope
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;redundant_path_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;dom_depth_limit&quot;</code>
+            </th>
+            <td>
+                
+                    <code>5</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_file_extensions&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_path_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;exclude_content_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;include_path_patterns&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;restrict_paths&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;extend_paths&quot;</code>
+            </th>
+            <td>
+                
+                    <code>[]</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;url_rewrites&quot;</code>
+            </th>
+            <td>
+                
+                    
+                        <code>{}</code>
+                    
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+    <hr/>
+
+    <h3>
+        <a
+            id="configuration-session"
+            href="#!/configuration/session"
+        >
+            Session
+        </a>
+    </h3>
+
+    <table class="table table-condensed">
+    <col width="15%"/>
+
+    
+        <tr>
+            <th>
+                <code>&quot;check_url&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;http://b3789e93786d.ngrok.io/admin&quot;</code>
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <th>
+                <code>&quot;check_pattern&quot;</code>
+            </th>
+            <td>
+                
+                    <code>&quot;(?-mix:logout)&quot;</code>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+
+
+        </div>
+
+        
+
+        
+        <div class="tab-pane" id="plugins">
+            <h2>Plugin results</h2>
+
+<div id="plugin-tabs">
+    <ul class="nav nav-tabs">
+        
+            <li class="active" >
+                <a href="#!/plugins/autologin">
+                    AutoLogin
+                </a>
+            </li>
+        
+            <li  >
+                <a href="#!/plugins/healthmap">
+                    Health map
+                </a>
+            </li>
+        
+    </ul>
+
+    <div class="tab-content">
+    
+        <div class="tab-pane active"
+             id="plugins-autologin">
+
+            <div class="plugin-description markdown">
+                
+<p>It looks for the login form in the user provided URL, merges its input fields
+with the user supplied parameters and sets the cookies of the response and
+request as framework-wide cookies.</p>
+
+<p><strong>NOTICE</strong>: If the login form is by default hidden and requires a sequence of DOM
+interactions in order to become visible, this plugin will not be able to submit it.</p>
+
+            </div>
+
+            <div class="plugin-results">
+                            
+                    <p class="alert alert-success">
+                        Logged in successfully.
+                    </p>
+
+                    <h3>Cookies set to:</h3>
+
+                    <dl class="dl-horizontal">
+                        
+                            <dt>
+                                <code>XSRF-TOKEN</code>
+                            </dt>
+                            <dd>
+                                <code>MAkXwNAMdtrkllFYsCrdgv1NJR7t9C95vwoLFpEt</code>
+                            </dd>
+                        
+                            <dt>
+                                <code>laravel_session</code>
+                            </dt>
+                            <dd>
+                                <code>XW4zExw69HOBHNoekB68O5mITPeXW0x3sFlrlvmd</code>
+                            </dd>
+                        
+                    </dl>
+            
+
+            </div>
+        </div>
+    
+        <div class="tab-pane "
+             id="plugins-healthmap">
+
+            <div class="plugin-description markdown">
+                <p>Generates a simple list of safe/unsafe URLs.</p>
+
+            </div>
+
+            <div class="plugin-results">
+                            <style type="text/css">
+                a.without_issues {
+                    color: blue;
+                }
+                a.with_issues {
+                    color: red;
+                }
+            </style>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Total
+                        </dt>
+                        <dd>
+                            34
+                        </dd>
+
+                        <dt>
+                            Without issues
+                        </dt>
+                        <dd>
+                            34
+                        </dd>
+
+                        <dt>
+                            With issues
+                        </dt>
+                        <dd>
+                            0
+                        </dd>
+
+                        <dt>
+                            Issue percentage
+                        </dt>
+                        <dd>
+                            0
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="col-md-10">
+                    <ul class="list-unstyled">
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/">
+                                http://b3789e93786d.ngrok.io/
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/AddQueuedCookiesToResponse.php">
+                                http://b3789e93786d.ngrok.io/AddQueuedCookiesToResponse.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/AuthGates.php">
+                                http://b3789e93786d.ngrok.io/AuthGates.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/Authenticate.php">
+                                http://b3789e93786d.ngrok.io/Authenticate.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/CheckForMaintenanceMode.php">
+                                http://b3789e93786d.ngrok.io/CheckForMaintenanceMode.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/Controller.php">
+                                http://b3789e93786d.ngrok.io/Controller.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/ControllerDispatcher.php">
+                                http://b3789e93786d.ngrok.io/ControllerDispatcher.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/Kernel.php">
+                                http://b3789e93786d.ngrok.io/Kernel.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/Pipeline.php">
+                                http://b3789e93786d.ngrok.io/Pipeline.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/Route.php">
+                                http://b3789e93786d.ngrok.io/Route.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/RouteCollection.php">
+                                http://b3789e93786d.ngrok.io/RouteCollection.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/Router.php">
+                                http://b3789e93786d.ngrok.io/Router.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/SetLocale.php">
+                                http://b3789e93786d.ngrok.io/SetLocale.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/ShareErrorsFromSession.php">
+                                http://b3789e93786d.ngrok.io/ShareErrorsFromSession.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/StartSession.php">
+                                http://b3789e93786d.ngrok.io/StartSession.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/SubstituteBindings.php">
+                                http://b3789e93786d.ngrok.io/SubstituteBindings.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/SystemCalendarController.php">
+                                http://b3789e93786d.ngrok.io/SystemCalendarController.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/TransformsRequest.php">
+                                http://b3789e93786d.ngrok.io/TransformsRequest.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/TrustProxies.php">
+                                http://b3789e93786d.ngrok.io/TrustProxies.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/ValidatePostSize.php">
+                                http://b3789e93786d.ngrok.io/ValidatePostSize.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/VerifyCsrfToken.php">
+                                http://b3789e93786d.ngrok.io/VerifyCsrfToken.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/_ignition/assets">
+                                http://b3789e93786d.ngrok.io/_ignition/assets
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/admin">
+                                http://b3789e93786d.ngrok.io/admin
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/admin/system-calendar">
+                                http://b3789e93786d.ngrok.io/admin/system-calendar
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/app.php">
+                                http://b3789e93786d.ngrok.io/app.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/b3789e93786d.ngrok.io">
+                                http://b3789e93786d.ngrok.io/b3789e93786d.ngrok.io
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/css/custom.css">
+                                http://b3789e93786d.ngrok.io/css/custom.css
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/home">
+                                http://b3789e93786d.ngrok.io/home
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/index.php">
+                                http://b3789e93786d.ngrok.io/index.php
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/js/main.js">
+                                http://b3789e93786d.ngrok.io/js/main.js
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/login">
+                                http://b3789e93786d.ngrok.io/login
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/logout">
+                                http://b3789e93786d.ngrok.io/logout
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/password/reset">
+                                http://b3789e93786d.ngrok.io/password/reset
+                            </a>
+                        </li>
+                    
+
+                        <li>
+                            <a class="text-success"
+                                href="http://b3789e93786d.ngrok.io/v2.0dev">
+                                http://b3789e93786d.ngrok.io/v2.0dev
+                            </a>
+                        </li>
+                    
+
+                    </ul>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    
+    </div>
+
+</div>
+
+        </div>
+        
+
+        <div class="tab-pane" id="sitemap">
+            <h2>
+    <a href="#!/sitemap">
+        Sitemap
+
+        <span class="badge">34</span>
+    </a>
+</h2>
+
+<div id="sitemap">
+
+    <table class="table table-condensed">
+        <tr>
+            <th>HTTP status code</th>
+            <th>URL</th>
+        </tr>
+
+        
+            <tr>
+                <th>302</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/">
+                        http://b3789e93786d.ngrok.io/
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/AddQueuedCookiesToResponse.php">
+                        http://b3789e93786d.ngrok.io/AddQueuedCookiesToResponse.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/AuthGates.php">
+                        http://b3789e93786d.ngrok.io/AuthGates.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/Authenticate.php">
+                        http://b3789e93786d.ngrok.io/Authenticate.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/CheckForMaintenanceMode.php">
+                        http://b3789e93786d.ngrok.io/CheckForMaintenanceMode.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/Controller.php">
+                        http://b3789e93786d.ngrok.io/Controller.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/ControllerDispatcher.php">
+                        http://b3789e93786d.ngrok.io/ControllerDispatcher.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/Kernel.php">
+                        http://b3789e93786d.ngrok.io/Kernel.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/Pipeline.php">
+                        http://b3789e93786d.ngrok.io/Pipeline.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/Route.php">
+                        http://b3789e93786d.ngrok.io/Route.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/RouteCollection.php">
+                        http://b3789e93786d.ngrok.io/RouteCollection.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/Router.php">
+                        http://b3789e93786d.ngrok.io/Router.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/SetLocale.php">
+                        http://b3789e93786d.ngrok.io/SetLocale.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/ShareErrorsFromSession.php">
+                        http://b3789e93786d.ngrok.io/ShareErrorsFromSession.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/StartSession.php">
+                        http://b3789e93786d.ngrok.io/StartSession.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/SubstituteBindings.php">
+                        http://b3789e93786d.ngrok.io/SubstituteBindings.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/SystemCalendarController.php">
+                        http://b3789e93786d.ngrok.io/SystemCalendarController.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/TransformsRequest.php">
+                        http://b3789e93786d.ngrok.io/TransformsRequest.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/TrustProxies.php">
+                        http://b3789e93786d.ngrok.io/TrustProxies.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/ValidatePostSize.php">
+                        http://b3789e93786d.ngrok.io/ValidatePostSize.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/VerifyCsrfToken.php">
+                        http://b3789e93786d.ngrok.io/VerifyCsrfToken.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/_ignition/assets">
+                        http://b3789e93786d.ngrok.io/_ignition/assets
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/admin">
+                        http://b3789e93786d.ngrok.io/admin
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>500</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/admin/system-calendar">
+                        http://b3789e93786d.ngrok.io/admin/system-calendar
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/app.php">
+                        http://b3789e93786d.ngrok.io/app.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/b3789e93786d.ngrok.io">
+                        http://b3789e93786d.ngrok.io/b3789e93786d.ngrok.io
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/css/custom.css">
+                        http://b3789e93786d.ngrok.io/css/custom.css
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>302</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/home">
+                        http://b3789e93786d.ngrok.io/home
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>302</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/index.php">
+                        http://b3789e93786d.ngrok.io/index.php
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/js/main.js">
+                        http://b3789e93786d.ngrok.io/js/main.js
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>200</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/login">
+                        http://b3789e93786d.ngrok.io/login
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>405</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/logout">
+                        http://b3789e93786d.ngrok.io/logout
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>302</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/password/reset">
+                        http://b3789e93786d.ngrok.io/password/reset
+                    </a>
+                </td>
+            </tr>
+        
+            <tr>
+                <th>404</th>
+                <td>
+                    <a href="http://b3789e93786d.ngrok.io/v2.0dev">
+                        http://b3789e93786d.ngrok.io/v2.0dev
+                    </a>
+                </td>
+            </tr>
+        
+    </table>
+
+</div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

