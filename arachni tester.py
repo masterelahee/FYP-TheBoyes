@@ -37,7 +37,7 @@ from bs4 import BeautifulSoup
 
 class ArachniClient(object):
 
-   with open('./profiles/speedscan.json') as f:
+   with open('./profiles/xss.json') as f:
       default_profile = json.load(f)
 
    def __init__(self, arachni_url = 'http://127.0.0.1:7331'):
@@ -111,14 +111,14 @@ class ArachniClient(object):
       with open(profile_path) as f:
          self.options = json.load(f)
    
-   def getScanReport(self, scanID, format):
+   def getScanReport(self, scanID, report_format):
       if report_format == 'html':
          report_format = 'html.zip'
 
       if report_format in ['json', 'xml', 'yaml', 'html.zip']:
-         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"arachni_" + scan_ID + "_scan_report." + report_format)
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"arachni_" + scanID + "_scan_report." + report_format)
       elif report_format == None: #outputs to json by default
-         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","arachni_" + scan_ID + "_scan_report.json")
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","arachni_" + scanID + "_scan_report.json")
       else:
          print ("Your requested format is not available.")
 
@@ -127,7 +127,6 @@ def cls():
 
 #main
 if __name__ == '__main__':
-   a = ArachniClient()
    #test website: http://testhtml5.vulnweb.com
    url = input("Enter url: ")
    a = ArachniClient()
