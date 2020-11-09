@@ -116,11 +116,26 @@ class ArachniClient(object):
          report_format = 'html.zip'
 
       if report_format in ['json', 'xml', 'yaml', 'html.zip']:
-         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"arachni_" + scanID + "_scan_report." + report_format)
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"./reports/arachni_" + scanID + "_scan_report." + report_format)
       elif report_format == None: #outputs to json by default
-         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","arachni_" + scanID + "_scan_report.json")
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","./reports/arachni_" + scanID + "_scan_report.json")
       else:
          print ("Your requested format is not available.")
+   
+   def processJSON(self, scanID):  
+      with open("./reports/arachni_" + scanID + "_scan_report.json", encoding="utf-8") as jsonfile:
+         json_obj = json.load(jsonfile)
+
+      try:
+         for x in json_obj['issues']:
+            print("Name: ",x['name'])
+            print("Description: ",x['description'])
+            print("Remedy guidance: ", x['remedy_guidance'])
+            print("Issue found in site: ", x['vector']['url'])
+            print("References: ", x['references'])
+            print("")
+      except Exception:
+         pass
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -128,17 +143,35 @@ def cls():
 #main
 if __name__ == '__main__':
    #test website: http://testhtml5.vulnweb.com
-   url = input("Enter url: ")
+   
+   #init objects
    a = ArachniClient()
-   a.target(url)
-   scan_json_object = a.start_scan() #outputs json dictionary
-   scan_ID = scan_json_object["id"]
-   start_time = time.time()
-   print(a.get_scans())
-   #print(scan_ID) #in case program fails and scans need to be terminated again
+   resumeFlag = False
+   
+   #checks for existing scans and resumes from there instead
+   avail_scan_object = a.get_scans() #returns json object of available scans
+   print(a.get_scans()) #displays available scans
+
+   for x in avail_scan_object: #check if avail scan is ongoing
+      status_object = a.get_status(x)
+      if(status_object["busy"] == True): #break and resume scan if scan is still ongoing
+         scan_ID = x
+         resumeFlag = True
+         start_time = time.time()
+         break
+
+   #start new scan if there are no ongoing ones
+   if(resumeFlag == False):
+      url = input("Enter url: ")
+      a.target(url)
+      scan_json_object = a.start_scan() #outputs json dictionary
+      scan_ID = scan_json_object["id"]
+      start_time = time.time()
+
    while True:
       cls()
-      print("scan is ongoing")
+      print("Resumed scan? ", resumeFlag)
+      print("The scan is ongoing...")
       print("Elapsed time is: ", time.time() - start_time)
       status_object = a.get_status(scan_ID)
       print("Current status is: ", status_object["status"])
@@ -146,17 +179,10 @@ if __name__ == '__main__':
       if(status_object["busy"] == False):
          print("Elapsed time is: ", time.time() - start_time)
          print("Scan has been completed, retrieving report...")
-         a.getScanReport(scan_ID,"json")
-         # urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.xml","arachni_" + scan_ID + "_scan_report.xml") #sends a call for report after scan is complete
-         # #output html instead?
-         # urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.html.zip","arachni_" + scan_ID + "_scan_report.html.zip")
-         # urllib.request.urlretrieve("http://127.0.0.1:7331/scans/" + scan_ID + "/report.json","arachni_" + scan_ID + "_scan_report.json")
-         # #beautify xml output
-         # bs = BeautifulSoup(open("arachni_" + scan_ID + "_scan_report.xml"),"xml")
-         # xml_output = bs.prettify()
-         # with open("pretty_xml_report_" + scan_ID + ".xml", "wb") as f:
-         #    f.write(xml_output.encode('utf-8'))
+         a.getScanReport(scan_ID,"json") #output to json for database processing
+         a.getScanReport(scan_ID,"html") #output to html for user ease of interaction
+         a.processJSON(scan_ID) #print out choice information
          break
-      time.sleep(60)
+      time.sleep(60) #delay status update to 1 minute per request
       
    #a.delete_scan(scan_ID) #disabled for testing
