@@ -21,7 +21,7 @@ br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
 br.addheaders = [('User-agent', 'Chrome')]
 
 # The site we will navigate into, handling it's session
-br.open('https://tryhackus-theboyes.ml')
+br.open('https://tryhackus.tk')
 
 # View available forms
 for f in br.forms():
@@ -31,13 +31,13 @@ for f in br.forms():
 br.select_form(nr=0)
 
 # User credentials
-br.form['email'] = 'admin@admim.com'
-br.form['password'] = 'password'
+br.form['email'] = 'jiha@admim.com'
+br.form['password'] = 'qwertyuiopasdfghjklzxcvbnm'
 
 # Login
 br.submit()
 
-getpage= requests.get('https://tryhackus-theboyes.ml/admin')
+getpage= requests.get('https://tryhackus.tk/admin')
 
 getpage_soup= BeautifulSoup(getpage.text, 'html.parser')
 
@@ -45,4 +45,4 @@ all_links= getpage_soup.findAll('a')
 
 for link in all_links:
     print (link)
-print(br.open('https://tryhackus-theboyes.ml/admin/clients').read())
+print(br.open('https://tryhackus.tk/admin/clients').read())

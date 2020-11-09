@@ -154,7 +154,7 @@ if __name__ == '__main__':
 
    for x in avail_scan_object: #check if avail scan is ongoing
       status_object = a.get_status(x)
-      if(status_object["busy"] == True): #break and resume scan if scan is still ongoing
+      if(status_object["busy"] == True): #break and resume last scan if scan is still ongoing
          scan_ID = x
          resumeFlag = True
          start_time = time.time()
