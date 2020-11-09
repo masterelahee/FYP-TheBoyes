@@ -63,7 +63,6 @@
    "session" : {},
    "checks" : [],
    "platforms" : [],
-   "plugins" : {},
    "no_fingerprinting" : false,
    "authorized_by" : null
  }
