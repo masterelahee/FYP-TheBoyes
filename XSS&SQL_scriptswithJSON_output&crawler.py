@@ -115,39 +115,42 @@ def scan_sql_injection(url):
     # test on HTML forms
     forms = get_all_forms(url)
     print(f"[+] Detected {len(forms)} forms on {url}.")
-    for form in forms:
-        form_details = get_form_details(form)
-        for c in "\"'":
-            # the data body we want to submit
-            data = {}
-            for input_tag in form_details["inputs"]:
-                if input_tag["type"] == "hidden" or input_tag["value"]:
-                    # any input form that is hidden or has some value,
-                    # just use it in the form body
-                    try:
-                        data[input_tag["name"]] = input_tag["value"] + c
-                    except:
-                        pass
-                elif input_tag["type"] != "submit":
-                    # all others except submit, use some junk data with special character
-                    data[input_tag["name"]] = f"test{c}"
-                elif input_tag["type"]  == "submit":
-                    input_tag["Issue"] = "SQL Injection"
-                    input_tag["Description"] = "SQL Injection allows attacker to modify/delete database related values"
-                    input_tag["Remedy"] = "Input Sanitization, Escaping User Suppllied Inputs, Parameterized Queries etc"
-                    input_tag["Useful Links"] = "https://portswigger.net/web-security/sql-injection, https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
-            # join the url with the action (form request URL)
-            url = urljoin(url, form_details["action"])
-            if form_details["method"] == "post":
-                res = s.post(url, data=data)
-            elif form_details["method"] == "get":
-                res = s.get(url, params=data)
-            # test whether the resulting page is vulnerable
-            if is_vulnerable(res):
-                print("[+] SQL Injection vulnerability detected, link:", url)
-                print("[+] Form:")
-                print(form_details)
-                break
+    try:
+        for form in forms:
+            form_details = get_form_details(form)
+            for c in "\"'":
+                # the data body we want to submit
+                data = {}
+                for input_tag in form_details["inputs"]:
+                    if input_tag["type"] == "hidden" or input_tag["value"]:
+                        # any input form that is hidden or has some value,
+                        # just use it in the form body
+                        try:
+                            data[input_tag["name"]] = input_tag["value"] + c
+                        except:
+                            pass
+                    elif input_tag["type"] != "submit":
+                        # all others except submit, use some junk data with special character
+                        data[input_tag["name"]] = f"test{c}"
+                    elif input_tag["type"]  == "submit":
+                        input_tag["Issue"] = "SQL Injection"
+                        input_tag["Description"] = "SQL Injection allows attacker to modify/delete database related values"
+                        input_tag["Remedy"] = "Input Sanitization, Escaping User Suppllied Inputs, Parameterized Queries etc"
+                        input_tag["Useful Links"] = "https://portswigger.net/web-security/sql-injection, https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+                # join the url with the action (form request URL)
+                url = urljoin(url, form_details["action"])
+                if form_details["method"] == "post":
+                    res = s.post(url, data=data)
+                elif form_details["method"] == "get":
+                    res = s.get(url, params=data)
+                # test whether the resulting page is vulnerable
+                if is_vulnerable(res):
+                    print("[+] SQL Injection vulnerability detected, link:", url)
+                    print("[+] Form:")
+                    print(form_details)
+                    break
+    except:
+        pass
 def trying():
 	
 
@@ -166,7 +169,7 @@ def trying():
 	br.addheaders = [('User-agent', 'Chrome')]
 
 	# The site we will navigate into, handling it's session
-	br.open('https://tryhackus.tk/')
+	br.open('http://testphp.vulnweb.com/login.php')
 
 	# View available forms
 	for f in br.forms():
@@ -176,8 +179,8 @@ def trying():
 	br.select_form(nr=0)
 
 	# User credentials
-	br.form['email'] = 'admin@admim.com'
-	br.form['password'] = 'password'
+	#br.form['email'] = 'admin@admin.com'
+	#br.form['password'] = 'password'
 
 	# Login
 	br.submit()
@@ -191,6 +194,7 @@ def trying():
 	for link in all_links:
 		print (link)
 print(br.open('http://testphp.vulnweb.com/login.php').read())
+
 if __name__ == "__main__":
     url = "http://testphp.vulnweb.com/login.php"
     url_sql = "http://testphp.vulnweb.com/login.php"
