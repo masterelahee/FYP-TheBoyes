@@ -1,5 +1,6 @@
 {
   "scope" : {
+    "auto_redundant_paths": 3,
     "redundant_path_patterns" : {},
     "dom_depth_limit" : 5,
     "exclude_file_extensions" : [],
@@ -38,7 +39,7 @@
   "browser_cluster" : {
     "local_storage" : {},
     "wait_for_elements" : {},
-    "pool_size" : 6,
+    "pool_size" : 10,
     "job_timeout" : 25,
     "worker_time_to_live" : 100,
     "ignore_images" : false,
@@ -129,13 +130,18 @@
     "xxe"
   ],
   "platforms" : [],
-  "plugins" : {
-    "autothrottle" : {},
-    "discovery" : {},
-    "healthmap" : {},
-    "timing_attacks" : {},
-    "uniformity" : {}
-  },
+  "plugins": {
+        "uniformity": {}, 
+        "autothrottle": {}, 
+        "autologin": {
+            "url": "http://b3789e93786d.ngrok.io/", 
+            "check": "logout", 
+            "parameters": "email=admin@admin.com&password=password"
+        }, 
+        "healthmap": {}, 
+        "timing_attacks": {}, 
+        "discovery": {}
+    }, 
   "no_fingerprinting" : false,
   "authorized_by" : null
 }

@@ -136,6 +136,7 @@ class SecurityHeaders():
 
         """ Default return array """
         retval = {
+
             'x-frame-options': {'defined': False, 'warn': 1, 'contents': '', 'discription': 'provide clickjacking protection that A malicious technique that tricks the user into clicking on something other than what they perceive to be clicking, potentially allowing an attacker to leak confidential information or gain control over their computer.  ' },
             'strict-transport-security': {'defined': False, 'warn': 1, 'contents': '', 'discription': 'is for HTTP Strict Transport Security In general, when HTTPS is forced, the server can convert it using 302 Redirect. However, this can act as a vulnerability point. It is recommended to induce HTTPS connection using 302 Redirect and force HTTPS to the client browser, which is HSTS (HTTP Strict Transport Security). Since it is forced by the client (browser), the connection itself using Plain Text (HTTP) is not attempted from the beginning and has the advantage that it is blocked on the client side. ' },
             'access-control-allow-origin': {'defined': False, 'warn': 0, 'contents': '', 'discription': 'specifies either a single origin, which tells browsers to allow that origin to access the resource' },
@@ -144,6 +145,7 @@ class SecurityHeaders():
             'x-content-type-options': {'defined': False, 'warn': 1, 'contents': '', 'discription': 'response HTTP header is a marker used by the server to indicate that the MIME types advertised in the Content-Type headers should not be changed and be followed.' },
             'x-powered-by': {'defined': False, 'warn': 0, 'contents': '' },
             'server': {'defined': False, 'warn': 0, 'contents': '' }
+
         }
 
         parsed = urlparse(url)
@@ -192,6 +194,7 @@ class SecurityHeaders():
 
 if __name__ == "__main__":
 
+
     url = 'unpatchedfyp.hopto.org'
 
     foo = SecurityHeaders()
@@ -200,11 +203,14 @@ if __name__ == "__main__":
     if not parsed.scheme:
         url = 'http://' + url # default to http if scheme not provided
 
+
+
     headers = foo.check_headers(url)
 
     if not headers:
         print ("Failed to fetch headers, exiting...")
         sys.exit(1)
+
 
     ###json output
 

@@ -1,0 +1,89 @@
+{
+    "audit": {
+        "exclude_vector_patterns": [], 
+        "parameter_values": true, 
+        "elements": [], 
+        "link_templates": [], 
+        "include_vector_patterns": []
+    }, 
+    "http": {
+        "request_timeout": 10000, 
+        "cookies": {}, 
+        "response_max_size": 500000, 
+        "request_concurrency": 20, 
+        "request_headers": {}, 
+        "authentication_type": "auto", 
+        "user_agent": "Arachni/v2.0dev", 
+        "request_redirect_limit": 5, 
+        "request_queue_size": 100
+    }, 
+    "url": null, 
+    "no_fingerprinting": false, 
+    "checks": [
+        "allowed_methods", 
+        "backup_directories", 
+		"csrf", 
+		"path_traversal",
+        "html_objects", 
+        "http_only_cookies", 
+        "http_put", 
+        "insecure_client_access_policy", 
+        "insecure_cookies", 
+        "interesting_responses",
+		"x_frame_options",
+		"password_autocomplete",
+        "backup_files"
+    ], 
+    "browser_cluster": {
+        "screen_width": 1600, 
+        "pool_size": 10, 
+        "ignore_images": true, 
+        "worker_time_to_live": 100, 
+        "wait_for_elements": {}, 
+        "job_timeout": 25, 
+        "screen_height": 1200
+    }, 
+    "platforms": [], 
+    "session": {}, 
+    "plugins": {
+        "uniformity": {}, 
+        "autothrottle": {}, 
+        "autologin": {
+            "url": "http://b3789e93786d.ngrok.io/", 
+            "check": "logout", 
+            "parameters": "email=admin@admin.com&password=password"
+        }, 
+        "healthmap": {}, 
+        "timing_attacks": {}, 
+        "discovery": {}
+    }, 
+    "authorized_by": null, 
+    "input": {
+        "values": {}, 
+        "without_defaults": false, 
+        "default_values": {
+            "(?i-mx:pass)": "5543!%arachni_secret", 
+            "(?i-mx:name)": "arachni_name", 
+            "(?i-mx:mail)": "arachni@email.gr", 
+            "(?i-mx:amount)": "100", 
+            "(?i-mx:usr)": "arachni_user", 
+            "(?i-mx:id)": "1", 
+            "(?i-mx:txt)": "arachni_text", 
+            "(?i-mx:account)": "12", 
+            "(?i-mx:user)": "arachni_user", 
+            "(?i-mx:num)": "132"
+        }, 
+        "force": false
+    }, 
+    "scope": {
+		"auto_redundant_paths": 3,
+        "exclude_content_patterns": [], 
+        "url_rewrites": {}, 
+        "redundant_path_patterns": {}, 
+        "extend_paths": [], 
+        "dom_depth_limit": 5, 
+        "include_path_patterns": [], 
+        "restrict_paths": [], 
+        "exclude_path_patterns": []
+    }
+}
