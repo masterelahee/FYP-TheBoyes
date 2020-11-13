@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+img.animated-gif
+{
+  width: 500px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .demo-ribbon {
   width: 100%;
   height: 40vh;
