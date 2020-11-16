@@ -14,6 +14,20 @@
  * limitations under the License.
  */
 
+p
+{
+  margin-top: 16px;
+}
+
+img.picture
+{
+  width: 500px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 img.animated-gif
 {
   width: 500px;
@@ -26,7 +40,7 @@ img.animated-gif
 .demo-ribbon {
   width: 100%;
   height: 40vh;
-  background-color: #3F51B5;
+  background-color: gray;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
