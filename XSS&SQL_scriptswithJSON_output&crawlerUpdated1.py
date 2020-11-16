@@ -182,7 +182,7 @@ if __name__ == "__main__":
     print("XSS Vulnerabilty allows attacker to mess with an application by posing as victim use and access user data.")
     print("Filtering of inputs, type casting, JavaScript Unicode Escapes etc")
     print("https://portswigger.net/web-security/cross-site-scripting,https://owasp.org/www-community/attacks/xss/#")
-    url = "http://testphp.vulnweb.com"
+    url = "http://html5.vulnweb.com/"
     url_sql = "http://testphp.vulnweb.com/login.php"
     
     #scan_sql_injection(url_sql)
