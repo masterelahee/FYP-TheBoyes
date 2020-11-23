@@ -69,15 +69,15 @@ class ArachniClient(object):
       if report_format == 'html':
          report_format = 'html.zip'
 
-      if report_format in ['json', 'xml', 'yaml', 'html.zip']:
-         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"./reports/arachni_" + scanID + "_scan_report." + report_format)
+      if report_format in ['json', 'xml', 'yaml','html.zip']:
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report." + report_format,"./reports/" + scanID + "." + report_format)
       elif report_format == None: #outputs to json by default
-         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","./reports/arachni_" + scanID + "_scan_report.json")
+         urllib.request.urlretrieve(self.arachni_url + "/scans/" + scanID + "/report","./reports/" + scanID + ".json")
       else:
          print ("Your requested format is not available.")
    
    def processJSON(self, scanID):  
-      with open("./reports/arachni_" + scanID + "_scan_report.json", encoding="utf-8") as jsonfile:
+      with open("./reports/" + scanID + ".json", encoding="utf-8") as jsonfile:
          json_obj = json.load(jsonfile)
 
       try:
@@ -112,7 +112,7 @@ def cls():
 #main
 if __name__ == '__main__':
    #test website: http://testhtml5.vulnweb.com
-   #test unpatched: http://b3789e93786d.ngrok.io/
+   #test unpatched: http://cea1105f5552.ngrok.io/
 
    #init objects
    a = ArachniClient()

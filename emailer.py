@@ -14,7 +14,7 @@ session = api.user_get_session_token(email='fypemail@yahoo.com', password='iamus
 # API client does not know about the token
 # until explicitly told about it:
 api.session = session
-scan_id = 'cf9da0df77e14b2dff598da95963da49' #replace this part with the scanner id from the arachni scanner  
+scan_id = '9a58f932f8d1387bfa0ab64b0c8bd08d' #replace this part with the scanner id from the arachni scanner  
 
 fd = open('./reports/arachni_' + scan_id + '_scan_report.html.zip', 'rb')
 
