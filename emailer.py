@@ -4,37 +4,47 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.application import MIMEApplication
 from email import encoders
-from mediafire import (MediaFireApi, MediaFireUploader)
 import time
+import pathlib
+import dropbox
+import re
 
-api = MediaFireApi()
-uploader = MediaFireUploader(api)
-session = api.user_get_session_token(email='fypemail@yahoo.com', password='iamusingastrongpassword', app_id='42511')
+## HARDCODED FILE PATH, CHANGE THIS LATER
+# the source file
+folder = pathlib.Path("./reports/")    # located in this folder
+scanID = "f1247dfee641c1a7ed953f5770bfd144"
+filename = scanID + ".html.zip"         # file name
+filepath = folder / filename  # path object, defining the file
 
-# API client does not know about the token
-# until explicitly told about it:
-api.session = session
-scan_id = '9a58f932f8d1387bfa0ab64b0c8bd08d' #replace this part with the scanner id from the arachni scanner  
+# target location in Dropbox
+target = "/"              # the target folder
+targetfile = target + filename   # the target path and file name
 
-fd = open('./reports/arachni_' + scan_id + '_scan_report.html.zip', 'rb')
+# Create a dropbox object using an API v2 key
+d = dropbox.Dropbox("ClkPn4pV_5sAAAAAAAAAAUm4ft1qOk4VNd77wioArPu7WbFxQBb1f7-UKZQPfaRB")
 
-result = uploader.upload(fd, 'arachni_' + scan_id + '_scan_report.html.zip', folder_key='tje4eo1vl6m83') #returns a json object
+# open the file and upload it
+with filepath.open("rb") as f:
+   # upload gives you metadata about the file
+   # we want to overwite any previous version of the file
+   meta = d.files_upload(f.read(), targetfile, mode=dropbox.files.WriteMode("overwrite"))
 
-print(api.file_get_info(result.quickkey))
-result_object = api.file_get_info(result.quickkey)
-print(result_object["file_info"]["filename"])
-print(result_object["file_info"]["links"]["normal_download"]) #returns the download link
+# create a shared link
+link = d.sharing_create_shared_link(targetfile)
 
-mf_link = result_object["file_info"]["links"]["normal_download"]
+# url which can be shared
+dropbox_url = link.url
+
+print(dropbox_url)
 
 #take scan id, call mediafire uploader and then get dl link to email to user
 time.sleep(10)
 # Create a multipart message
 msg = MIMEMultipart()
-body_part = MIMEText('Your report is ready, here is the link to download it: ' + mf_link, 'plain')
+body_part = MIMEText('Your report is ready, here is the link to download it: ' + dropbox_url, 'plain')
 msg['Subject'] = 'Python scan report'
-msg['From'] = 'fypemail@yahoo.com'
-msg['To'] = 'jasonling9199@gmail.com'
+msg['From'] = 'fypemail@yahoo.com' #change this to email used by us
+msg['To'] = 'jasonling9199@gmail.com' #change this to email input from user
 # Add body to email
 msg.attach(body_part)
 
