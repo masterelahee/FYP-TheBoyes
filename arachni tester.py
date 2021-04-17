@@ -4,10 +4,11 @@ import json
 import os
 import time
 from bs4 import BeautifulSoup
+import subprocess
 
 class ArachniClient(object):
 
-   with open('./profiles/full_audit_normal.json') as f:
+   with open('./profiles/noauth/default.json') as f:
       default_profile = json.load(f)
 
    def __init__(self, arachni_url = 'http://127.0.0.1:7331'):
@@ -91,8 +92,21 @@ class ArachniClient(object):
       except Exception:
          pass
    
-   def startAuthScan(self): #call this if user decides to do auth scan
-      self.profile("./profiles/full_audit_auth.json")
+   def selectAuthScan(self, auth_scan_type): #call this if user decides to do auth scan and has selected a type of scan
+      scanType = ""
+      if auth_scan_type == 1: #full audit
+         self.profile("./profiles/auth/full_audit.json")
+         scanType = "Full Audit"
+      elif auth_scan_type == 2: #xss
+         self.profile("./profiles/auth/xss.json")
+         scanType = "XSS"
+      elif auth_scan_type == 3: #sql
+         self.profile("./profiles/auth/sql.json")
+         scanType = "SQL"
+      elif auth_scan_type == 4: #server
+         self.profile("./profiles/auth/server.json")
+         scanType = "Server" 
+
       target_url = input("Enter URL: ")
       username = input("Input username: ")
       password = input("Input password: ")
@@ -105,11 +119,30 @@ class ArachniClient(object):
       except urllib2.HTTPError as e:
          print(e.code)
 
+      return scanType
+
+   def selectNormalScan(self, scan_type): #call this if user decides to do auth scan and has selected a type of scan
+      scanType = ""
+      if scan_type == 1: #full audit
+         self.profile("./profiles/noauth/full_audit.json")
+         scanType = "Full Audit"
+      elif scan_type == 2: #xss
+         self.profile("./profiles/noauth/xss.json")
+         scanType = "XSS"
+      elif scan_type == 3: #sql
+         self.profile("./profiles/noauth/sql.json")
+         scanType = "SQL"
+      elif scan_type == 4: #server
+         self.profile("./profiles/noauth/server.json")
+         scanType = "Server" 
+
+      return scanType
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
 #main
+#bugs: not all profiles have the url key in them, fix! //fixed
 if __name__ == '__main__':
    #test website: http://testhtml5.vulnweb.com
    #test unpatched: http://cea1105f5552.ngrok.io/
@@ -118,6 +151,7 @@ if __name__ == '__main__':
    a = ArachniClient()
    resumeFlag = False
    authFlag = False
+   scanType = ""
    
    #checks for existing scans and resumes from there instead
    avail_scan_object = a.get_scans() #returns json object of available scans
@@ -138,19 +172,33 @@ if __name__ == '__main__':
          cls()
          checkAuth = input("Do you want to perform an Authenticated Scan? (y/n): ")
 
+   #select scan type here then ask if user would like to use authenticated scanning
+
    #start new scan if there are no ongoing ones
    if(resumeFlag == False and checkAuth == "n"):
       print("Normal scan")
       url = input("Enter url: ")
+      checkNormalScanType = int(input("Please select a scan type [1 - full audit, 2 - xss, 3 - sql, 4 - server]: "))
+      while checkNormalScanType not in [1,2,3,4]:
+         print("Invalid input")
+         cls()
+         checkNormalScanType = input("Please select a scan type [1 - full audit, 2 - xss, 3 - sql, 4 - server]: ")
+      scanType = a.selectNormalScan(checkNormalScanType)
       a.target(url)
       scan_json_object = a.start_scan() #outputs json dictionary
       scan_ID = scan_json_object["id"]
       start_time = time.time()
 
+   #start auth scan if user chose yes
    elif(resumeFlag == False and checkAuth == "y"):
       authFlag = True
+      checkAuthScanType = int(input("Please select a scan type [1 - full audit, 2 - xss, 3 - sql, 4 - server]: "))
+      while checkAuthScanType not in [1,2,3,4]:
+         print("Invalid input")
+         cls()
+         checkAuthScanType = input("Please select a scan type [1 - full audit, 2 - xss, 3 - sql, 4 - server]: ")
       print("Authenticated scan")
-      a.startAuthScan()
+      scanType = a.selectAuthScan(checkAuthScanType)
       scan_json_object = a.start_scan() #outputs json dictionary
       scan_ID = scan_json_object["id"]
       start_time = time.time()
@@ -159,6 +207,7 @@ if __name__ == '__main__':
       cls()
       print("Resumed scan? | ", resumeFlag)
       print("Authenticated? | ", authFlag)
+      print("Scan type | ", scanType)
       print("The scan is ongoing...")
       status_object = a.get_status(scan_ID)
 
@@ -176,6 +225,6 @@ if __name__ == '__main__':
          a.getScanReport(scan_ID,"html") #output to html for user ease of interaction
          a.processJSON(scan_ID) #print out choice information
          break
-      time.sleep(60) #delay status update to 1 minute per status request
+      time.sleep(10) #delay status update to 1 minute per status request
       
    a.delete_scan(scan_ID) #comment this out if performing testing | deletes the scan after it is complete to prevent zombie processes

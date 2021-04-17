@@ -1,15 +1,16 @@
 {
-  "scope" : {
-    "redundant_path_patterns" : {},
-    "dom_depth_limit" : 5,
-    "exclude_file_extensions" : [],
-    "exclude_path_patterns" : [],
-    "exclude_content_patterns" : [],
-    "include_path_patterns" : [],
-    "restrict_paths" : [],
-    "extend_paths" : [],
-    "url_rewrites" : {}
+  "scope": {
+    "auto_redundant_paths": 3,
+    "exclude_content_patterns": [], 
+    "url_rewrites": {}, 
+    "redundant_path_patterns": {}, 
+    "extend_paths": [], 
+    "dom_depth_limit": 5, 
+    "include_path_patterns": [], 
+    "restrict_paths": [], 
+    "exclude_path_patterns": []
   },
+  "url": null, 
   "datastore" : {},
   "http" : {
     "user_agent" : "Arachni/v1.4",
@@ -38,7 +39,7 @@
   "browser_cluster" : {
     "local_storage" : {},
     "wait_for_elements" : {},
-    "pool_size" : 6,
+    "pool_size" : 10,
     "job_timeout" : 25,
     "worker_time_to_live" : 100,
     "ignore_images" : false,
@@ -76,7 +77,12 @@
     "discovery" : {},
     "healthmap" : {},
     "timing_attacks" : {},
-    "uniformity" : {}
+    "uniformity" : {},
+	"autologin": {
+            "url": null, 
+            "check": "logout", 
+            "parameters": null
+        }
   },
   "no_fingerprinting" : false,
   "authorized_by" : null

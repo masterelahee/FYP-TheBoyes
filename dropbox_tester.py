@@ -70,6 +70,7 @@ folder = pathlib.Path("./reports/")    # located in this folder
 scanID = "f1247dfee641c1a7ed953f5770bfd144"
 filename = scanID + ".html.zip"         # file name
 filepath = folder / filename  # path object, defining the file
+print(filepath)
 
 # target location in Dropbox
 target = "/"              # the target folder
@@ -78,11 +79,14 @@ targetfile = target + filename   # the target path and file name
 # Create a dropbox object using an API v2 key
 d = dropbox.Dropbox("ClkPn4pV_5sAAAAAAAAAAUm4ft1qOk4VNd77wioArPu7WbFxQBb1f7-UKZQPfaRB")
 
+print(d.users_get_current_account())
+
 # open the file and upload it
 with filepath.open("rb") as f:
    # upload gives you metadata about the file
    # we want to overwite any previous version of the file
    meta = d.files_upload(f.read(), targetfile, mode=dropbox.files.WriteMode("overwrite"))
+   print(meta)
 
 # create a shared link
 link = d.sharing_create_shared_link(targetfile)

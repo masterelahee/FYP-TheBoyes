@@ -17,49 +17,7 @@
         "request_redirect_limit": 5, 
         "request_queue_size": 100
     }, 
-    "url": null, 
-    "no_fingerprinting": false, 
-    "checks": [
-        "allowed_methods", 
-        "backup_directories", 
-		"csrf", 
-		"path_traversal",
-        "html_objects", 
-        "http_only_cookies", 
-        "http_put", 
-        "insecure_client_access_policy", 
-        "insecure_cookies", 
-        "interesting_responses",
-		"x_frame_options",
-		"password_autocomplete",
-        "backup_files"
-    ], 
-    "browser_cluster": {
-        "screen_width": 1600, 
-        "pool_size": 10, 
-        "ignore_images": true, 
-        "worker_time_to_live": 100, 
-        "wait_for_elements": {}, 
-        "job_timeout": 25, 
-        "screen_height": 1200
-    }, 
-    "platforms": [], 
-    "session": {}, 
-    "plugins": {
-        "uniformity": {}, 
-        "autothrottle": {}, 
-        "autologin": {
-            "url": "http://b3789e93786d.ngrok.io/", 
-            "check": "logout", 
-            "parameters": "email=admin@admin.com&password=password"
-        }, 
-        "healthmap": {}, 
-        "timing_attacks": {}, 
-        "discovery": {}
-    }, 
-    "authorized_by": null, 
     "input": {
-        "values": {}, 
         "without_defaults": false, 
         "default_values": {
             "(?i-mx:pass)": "5543!%arachni_secret", 
@@ -73,10 +31,36 @@
             "(?i-mx:user)": "arachni_user", 
             "(?i-mx:num)": "132"
         }, 
-        "force": false
+        "force": false, 
+        "values": {}
     }, 
+    "url": null, 
+    "no_fingerprinting": false, 
+    "browser_cluster": {
+        "screen_width": 1600, 
+        "pool_size": 6, 
+        "ignore_images": false, 
+        "worker_time_to_live": 100, 
+        "wait_for_elements": {}, 
+        "job_timeout": 25, 
+        "screen_height": 1200
+    }, 
+    "platforms": [], 
+    "session": {}, 
+    "plugins": {
+        "uniformity": {}, 
+        "autothrottle": {}, 
+        "autologin": {
+            "url": "https://416a5951f2c1.ngrok.io", 
+            "check": "logout", 
+            "parameters": "email=admin@admin.com&password=password"
+        }, 
+        "healthmap": {}, 
+        "timing_attacks": {}, 
+        "discovery": {}
+    }, 
+    "authorized_by": null, 
     "scope": {
-		"auto_redundant_paths": 3,
         "exclude_content_patterns": [], 
         "url_rewrites": {}, 
         "redundant_path_patterns": {}, 
@@ -85,5 +69,14 @@
         "include_path_patterns": [], 
         "restrict_paths": [], 
         "exclude_path_patterns": []
-    }
+    }, 
+    "checks": [
+        "backdoors", 
+        "common_admin_interfaces", 
+        "common_directories", 
+        "common_files", 
+        "interesting_responses", 
+        "mixed_resource",
+        "trainer"
+    ]
 }

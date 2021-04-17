@@ -20,23 +20,11 @@
     "url": null, 
     "no_fingerprinting": false, 
     "checks": [
-        "allowed_methods", 
-        "backup_directories", 
-		"csrf", 
-		"path_traversal",
-        "html_objects", 
-        "http_only_cookies", 
-        "http_put", 
-        "insecure_client_access_policy", 
-        "insecure_cookies", 
-        "interesting_responses",
-		"x_frame_options",
-		"password_autocomplete",
-        "backup_files"
+        
     ], 
     "browser_cluster": {
         "screen_width": 1600, 
-        "pool_size": 10, 
+        "pool_size": 6, 
         "ignore_images": false, 
         "worker_time_to_live": 100, 
         "wait_for_elements": {}, 
@@ -46,11 +34,7 @@
     "platforms": [], 
     "session": {}, 
     "plugins": {
-        "uniformity": {}, 
-        "autothrottle": {},
-        "healthmap": {}, 
-        "timing_attacks": {}, 
-        "discovery": {}
+	
     }, 
     "authorized_by": null, 
     "input": {
@@ -71,7 +55,6 @@
         "force": false
     }, 
     "scope": {
-        "auto_redundant_paths": 3,
         "exclude_content_patterns": [], 
         "url_rewrites": {}, 
         "redundant_path_patterns": {}, 

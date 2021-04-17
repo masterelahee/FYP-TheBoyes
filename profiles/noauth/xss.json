@@ -62,9 +62,13 @@
     "force" : false
   },
   "checks" : [
-    "sql_injection",
-    "sql_injection_differential",
-    "sql_injection_timing"
+    "xss",
+    "xss_path",
+    "xss_tag",
+    "xss_script_context",
+    "xss_event",
+    "xss_dom",
+    "xss_dom_script_context"
   ],
   "platforms" : [],
   "plugins" : {
@@ -74,6 +78,7 @@
     "timing_attacks" : {},
     "uniformity" : {}
   },
+  "url": null, 
   "no_fingerprinting" : false,
   "authorized_by" : null
 }

@@ -58,7 +58,3 @@ session.login('fypemail@yahoo.com', 'driqnfsefylmmlwq')
 session.sendmail(msg['From'], msg['To'], msg.as_string())
 print("Mail sent")
 session.quit() #closes email session after done
-
-# sender_address = 'fypemail@yahoo.com'
-# sender_pass = 'driqnfsefylmmlwq'
-# receiver_address = 'jasonling9199@gmail.com'

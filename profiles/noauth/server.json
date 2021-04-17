@@ -1,0 +1,73 @@
+{
+    "audit": {
+        "exclude_vector_patterns": [], 
+        "parameter_values": true, 
+        "elements": [], 
+        "link_templates": [], 
+        "include_vector_patterns": []
+    }, 
+    "http": {
+        "request_timeout": 10000, 
+        "cookies": {}, 
+        "response_max_size": 500000, 
+        "request_concurrency": 20, 
+        "request_headers": {}, 
+        "authentication_type": "auto", 
+        "user_agent": "Arachni/v2.0dev", 
+        "request_redirect_limit": 5, 
+        "request_queue_size": 100
+    }, 
+    "input": {
+        "without_defaults": false, 
+        "default_values": {
+            "(?i-mx:pass)": "5543!%arachni_secret", 
+            "(?i-mx:name)": "arachni_name", 
+            "(?i-mx:mail)": "arachni@email.gr", 
+            "(?i-mx:amount)": "100", 
+            "(?i-mx:usr)": "arachni_user", 
+            "(?i-mx:id)": "1", 
+            "(?i-mx:txt)": "arachni_text", 
+            "(?i-mx:account)": "12", 
+            "(?i-mx:user)": "arachni_user", 
+            "(?i-mx:num)": "132"
+        }, 
+        "force": false, 
+        "values": {}
+    }, 
+    "url": null, 
+    "no_fingerprinting": false, 
+    "browser_cluster": {
+        "screen_width": 1600, 
+        "pool_size": 6, 
+        "ignore_images": false, 
+        "worker_time_to_live": 100, 
+        "wait_for_elements": {}, 
+        "job_timeout": 25, 
+        "screen_height": 1200
+    }, 
+    "platforms": [], 
+    "session": {}, 
+    "plugins": {
+
+    }, 
+    "authorized_by": null, 
+    "scope": {
+        "exclude_content_patterns": [], 
+        "url_rewrites": {}, 
+        "redundant_path_patterns": {}, 
+        "extend_paths": [], 
+        "dom_depth_limit": 5, 
+        "include_path_patterns": [], 
+        "restrict_paths": [], 
+        "exclude_path_patterns": []
+    }, 
+    "checks": [
+        "backdoors", 
+        "common_admin_interfaces", 
+        "common_directories", 
+        "common_files", 
+        "interesting_responses", 
+        "mixed_resource",
+        "trainer"
+    ]
+}

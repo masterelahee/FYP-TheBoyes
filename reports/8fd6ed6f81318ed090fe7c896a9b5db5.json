@@ -1,0 +1,153 @@
+{
+  "version" : "1.5.1",
+  "seed" : "3d351fa7cb869b1961ceeab3b3bfb43c",
+  "options" : {
+    "audit" : {
+      "parameter_values" : true,
+      "exclude_vector_patterns" : [],
+      "include_vector_patterns" : [],
+      "link_templates" : [],
+      "links" : true,
+      "forms" : true,
+      "cookies" : true,
+      "jsons" : true,
+      "xmls" : true,
+      "ui_forms" : true,
+      "ui_inputs" : true
+    },
+    "browser_cluster" : {
+      "local_storage" : {},
+      "wait_for_elements" : {},
+      "pool_size" : 6,
+      "job_timeout" : 25,
+      "worker_time_to_live" : 100,
+      "ignore_images" : false,
+      "screen_width" : 1600,
+      "screen_height" : 1200
+    },
+    "datastore" : {
+      "report_path" : null,
+      "token" : "8fd6ed6f81318ed090fe7c896a9b5db5"
+    },
+    "http" : {
+      "user_agent" : "Arachni/v1.4",
+      "request_timeout" : 10000,
+      "request_redirect_limit" : 5,
+      "request_concurrency" : 20,
+      "request_queue_size" : 100,
+      "request_headers" : {},
+      "response_max_size" : 500000,
+      "cookies" : {},
+      "authentication_type" : "auto"
+    },
+    "input" : {
+      "values" : {
+        "name" : "arachni_name",
+        "user" : "arachni_user",
+        "usr" : "arachni_user",
+        "pass" : "5543!%arachni_secret",
+        "txt" : "arachni_text",
+        "num" : "132",
+        "amount" : "100",
+        "mail" : "arachni@email.gr",
+        "account" : "12",
+        "id" : "1"
+      },
+      "default_values" : {
+        "name" : "arachni_name",
+        "user" : "arachni_user",
+        "usr" : "arachni_user",
+        "pass" : "5543!%arachni_secret",
+        "txt" : "arachni_text",
+        "num" : "132",
+        "amount" : "100",
+        "mail" : "arachni@email.gr",
+        "account" : "12",
+        "id" : "1"
+      },
+      "without_defaults" : true,
+      "force" : false
+    },
+    "scope" : {
+      "redundant_path_patterns" : {},
+      "dom_depth_limit" : 5,
+      "exclude_file_extensions" : [],
+      "exclude_path_patterns" : [],
+      "exclude_content_patterns" : [],
+      "include_path_patterns" : [],
+      "restrict_paths" : [],
+      "extend_paths" : [],
+      "url_rewrites" : {}
+    },
+    "session" : {},
+    "checks" : [
+      "xss",
+      "xss_path",
+      "xss_tag",
+      "xss_script_context",
+      "xss_event",
+      "xss_dom",
+      "xss_dom_script_context"
+    ],
+    "platforms" : [],
+    "plugins" : {
+      "autothrottle" : {},
+      "discovery" : {},
+      "healthmap" : {},
+      "timing_attacks" : {},
+      "uniformity" : {},
+      "autologin" : {
+        "url" : "http://testhtml5.vulnweb.com",
+        "check" : "logout",
+        "parameters" : "email=admin&password=password"
+      }
+    },
+    "no_fingerprinting" : false,
+    "authorized_by" : null,
+    "url" : "http://testhtml5.vulnweb.com/"
+  },
+  "sitemap" : {},
+  "start_datetime" : "2021-04-10 14:48:12 +0800",
+  "finish_datetime" : "2021-04-10 14:48:22 +0800",
+  "delta_time" : "00:00:09",
+  "issues" : [],
+  "plugins" : {
+    "autologin" : {
+      "name" : "AutoLogin",
+      "description" : "\nIt looks for the login form in the user provided URL, merges its input fields\nwith the user supplied parameters and sets the cookies of the response and\nrequest as framework-wide cookies.\n\n**NOTICE**: If the login form is by default hidden and requires a sequence of DOM\ninteractions in order to become visible, this plugin will not be able to submit it.\n",
+      "author" : "Tasos \"Zapotek\" Laskos <tasos.laskos@arachni-scanner.com>",
+      "version" : "0.2.1",
+      "options" : [
+        {
+          "name" : "url",
+          "required" : true,
+          "description" : "The URL that contains the login form.",
+          "default" : null,
+          "value" : null,
+          "type" : "string"
+        },
+        {
+          "name" : "parameters",
+          "required" : true,
+          "description" : "Form parameters to submit -- special characters need to be URL encoded.( username=user&password=pass )",
+          "default" : null,
+          "value" : null,
+          "type" : "string"
+        },
+        {
+          "name" : "check",
+          "required" : true,
+          "description" : "A pattern which will be used to verify a successful login.\n                        For example, if a logout link only appears when a user is logged in then it can be a perfect choice.",
+          "default" : null,
+          "value" : null,
+          "type" : "string"
+        }
+      ],
+      "priority" : 0,
+      "results" : {
+        "status" : "form_not_found",
+        "message" : "Could not find a form suiting the provided parameters."
+      }
+    }
+  }
+}
