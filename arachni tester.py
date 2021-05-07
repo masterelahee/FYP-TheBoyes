@@ -145,6 +145,7 @@ def cls():
 #bugs: not all profiles have the url key in them, fix! //fixed
 if __name__ == '__main__':
    #test website: http://testhtml5.vulnweb.com
+   #test website: http://testphp.vulnweb.com/
    #test unpatched: http://cea1105f5552.ngrok.io/
 
    #init objects
