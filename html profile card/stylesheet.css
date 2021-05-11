@@ -1,0 +1,64 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    overflow: auto;
+    background-color: ;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  /* button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  } */
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+
+  h1
+  {
+    font-family: "Lato", Arial, sans-serif;
+  }
+
+  p
+  {
+    font-family: "Roboto", Arial, sans-serif;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+
+  .btn-group button {
+    text-align: center;
+    border: 1px solid;
+  }
+
+  .avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .avatardiv
+  {
+    padding-top: 10px;
+  }
